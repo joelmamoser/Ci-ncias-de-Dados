@@ -1,0 +1,31 @@
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+
+# Carregar o conjunto de dados
+data = pd.read_csv('caminho/do/arquivo.csv')
+
+# Remover linhas duplicadas
+data = data.drop_duplicates()
+
+# Lidar com valores ausentes
+data = data.dropna()  # Remover linhas com valores ausentes
+# Ou
+data = data.fillna(valor)  # Preencher valores ausentes com um valor específico
+
+# Normalizar/Padronizar dados
+scaler = StandardScaler()
+data[['coluna1', 'coluna2']] = scaler.fit_transform(data[['coluna1', 'coluna2']])
+
+# Transformação de dados
+data['coluna_transformada'] = data['coluna'].apply(lambda x: transformacao(x))
+
+# Redução de dimensionalidade (Exemplo com PCA)
+from sklearn.decomposition import PCA
+pca = PCA(n_components=2)
+data_pca = pca.fit_transform(data)
+
+# Tratamento de dados categóricos (Exemplo com codificação one-hot)
+data_encoded = pd.get_dummies(data, columns=['coluna_categorica'])
+
+# Salvar o conjunto de dados pré-processado
+data_encoded.to_csv('caminho/do/arquivo_preprocessado.csv', index=False)
