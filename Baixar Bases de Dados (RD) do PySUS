@@ -4,7 +4,13 @@ pip install pySUS
 from pysus.online_data import parquets_to_dataframe
 from pysus.online_data.SIH import download
 
-TO = download('to', 2009, 10)
+months = [1,2,3,4,5,6,7,8,9,10,11,12] 
+
+#or months = list(range(1,12+1))
+#TO = download('to', 2009, 10)
+#TO = download('to', 2009, months, SIH_GROUP)
+
+TO = download('to', 2009, 10, months, SIH_GROUP='SP')
 
 dfTO = parquets_to_dataframe(TO)
 
