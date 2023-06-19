@@ -10,7 +10,7 @@ months = [1,2,3,4,5,6,7,8,9,10,11,12]
 #TO = download('to', 2009, 10)
 #TO = download('to', 2009, months, SIH_GROUP)
 
-TO = download('to', 2009, 10, months, SIH_GROUP='SP')
+TO = download('to', 2009, months, SIH_GROUP='SP')
 
 dfTO = parquets_to_dataframe(TO)
 
