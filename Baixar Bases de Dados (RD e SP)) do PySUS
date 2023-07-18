@@ -1,4 +1,5 @@
 !git clone https://github.com/AlertaDengue/pySUS.git
+
 pip install pySUS
 
 from pysus.online_data import parquets_to_dataframe
@@ -7,11 +8,12 @@ from pysus.online_data.SIH import download
 months = [1,2,3,4,5,6,7,8,9,10,11,12] 
 
 #or months = list(range(1,12+1))
-#TO = download('to', 2009, 10)
-#TO = download('to', 2009, months, SIH_GROUP)
 
-TO = download('to', 2009, months, SIH_GROUP='SP')
+SIH_GROUP='RD'
 
-dfTO = parquets_to_dataframe(TO)
+RD = download('SC', 2022, months, SIH_GROUP)
 
-dfTO.head()
+dfRD = parquets_to_dataframe(RD[0])
+
+#Grava o dataframe RD em umm arquivo .csv
+dfRD.to_csv('SIH_RD_12_2022.csv')
