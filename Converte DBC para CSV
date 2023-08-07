@@ -1,0 +1,17 @@
+# roda só uma ver na vida pra baixar, depois nao precisa mais
+install.packages("read.dbc")
+
+#ativa a lib
+library("read.dbc")
+
+#####
+# converter arquivos dbc em csv
+# leio o dbc
+x <- read.dbc("C:/Users/Jo/Desktop/RENAL/PASC2201.dbc")
+#escrevo o csv
+write.csv(x,file="PASC2201_JO.csv")
+
+#ver csv salvo
+x <- read.csv("C:/Users/Jo/Desktop/RENAL/PASC2201_JO.csv.csv")
+View(x)
+str(x)
